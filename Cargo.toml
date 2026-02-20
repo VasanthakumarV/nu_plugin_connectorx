@@ -1,0 +1,23 @@
+[package]
+name = "nu_plugin_connectorx"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+connectorx = { version = "0.4.5", features = ["src_sqlite", "dst_arrow"] }
+chrono = { default-features = false, version = "0.4.43" }
+# chrono-tz = "0.10"
+nu-plugin = "0.110.0"
+nu-protocol = { version = "0.110.0", features = ["plugin"] }
+interprocess = "=2.2.3"
+parquet = { version = "54.3.1", features = ["arrow"] }
+arrow = { version = "54.3.1", features = ["chrono-tz"] }
+nu-path = "0.110.0"
+tracing = "0.1.44"
+tracing-subscriber = "0.3.22"
+rootcause = "0.12.0"
+rootcause-tracing = "0.12.0"
+nu-plugin-test-support = "0.110.0"
+
+[dev-dependencies]
+arrow-schema = "54.3.1"
