@@ -14,5 +14,3 @@ ci-clippy = "cargo clippy --all-features -- -D warnings"
 [dependencies]
 rust = ">=1.93.1,<1.94"
 rust-src = ">=1.93.1,<2"
-krb5 = ">=1.22.2,<2"
-pkg-config = ">=0.29.2,<0.30"
