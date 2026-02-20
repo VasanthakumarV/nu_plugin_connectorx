@@ -1,6 +1,6 @@
 # nu_plugin_connectorx
 
-| [crates.io](https://crates.io/crates/sqlfluff-lsp) |
+| [crates.io](https://crates.io/crates/nu_plugin_connectorx) |
 
 > [!WARNING]
 > This tool might be rough around the edges, it is not widely tested.
