@@ -1,0 +1,44 @@
+version: 6
+environments:
+  default:
+    channels:
+    - url: https://conda.anaconda.org/conda-forge/
+    options:
+      pypi-prerelease-mode: if-necessary-or-explicit
+    packages:
+      osx-64:
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/rust-1.93.1-h34a2095_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/rust-src-1.93.1-unix_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/rust-std-x86_64-apple-darwin-1.93.1-h38e4360_0.conda
+packages:
+- conda: https://conda.anaconda.org/conda-forge/osx-64/rust-1.93.1-h34a2095_0.conda
+  sha256: 9440f5fc8a369c98afe23578c6953841db76d7a8dddd70147083bb763161aa4b
+  md5: 23a55fe1b39ec665344faf185a6f206c
+  depends:
+  - rust-std-x86_64-apple-darwin 1.93.1 h38e4360_0
+  license: MIT
+  license_family: MIT
+  size: 201445167
+  timestamp: 1771008247355
+- conda: https://conda.anaconda.org/conda-forge/noarch/rust-src-1.93.1-unix_0.conda
+  sha256: 0a3b42d73b02cf6d58561ad9394db19885cf8c85e431468a65a33407ace96660
+  md5: a46314117619f908633193033c28ee0e
+  depends:
+  - __unix
+  constrains:
+  - rust >=1.93.1,<1.93.2.0a0
+  license: MIT
+  license_family: MIT
+  size: 4432837
+  timestamp: 1771008376862
+- conda: https://conda.anaconda.org/conda-forge/noarch/rust-std-x86_64-apple-darwin-1.93.1-h38e4360_0.conda
+  sha256: 5ea1c73d032db26113d4a36a3ee018bc11011bf92683601c431c1977c1a12602
+  md5: 52882f7e6444793d09d8345e46537113
+  depends:
+  - __unix
+  constrains:
+  - rust >=1.93.1,<1.93.2.0a0
+  license: MIT
+  license_family: MIT
+  size: 36439422
+  timestamp: 1771008122211

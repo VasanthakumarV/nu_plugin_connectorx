@@ -2,11 +2,24 @@
 name = "nu_plugin_connectorx"
 version = "0.1.0"
 edition = "2024"
+description = "Load data from DBs in `nushell` using ConnectorX"
+license = "MIT OR Apache-2.0"
+exclude = ["./github"]
+repository = "https://github.com/VasanthakumarV/nu_plugin_connectorx"
+readme = "README.md"
 
 [dependencies]
-connectorx = { version = "0.4.5", features = ["src_sqlite", "dst_arrow"] }
+connectorx = { version = "0.4.5", features = [
+  "dst_arrow",
+  "src_bigquery",
+  "src_mssql",
+  "src_mysql",
+  "src_oracle",
+  "src_postgres",
+  "src_sqlite",
+  "src_trino"
+] }
 chrono = { default-features = false, version = "0.4.43" }
-# chrono-tz = "0.10"
 nu-plugin = "0.110.0"
 nu-protocol = { version = "0.110.0", features = ["plugin"] }
 interprocess = "=2.2.3"
@@ -17,7 +30,7 @@ tracing = "0.1.44"
 tracing-subscriber = "0.3.22"
 rootcause = "0.12.0"
 rootcause-tracing = "0.12.0"
-nu-plugin-test-support = "0.110.0"
 
 [dev-dependencies]
 arrow-schema = "54.3.1"
+nu-plugin-test-support = "0.110.0"

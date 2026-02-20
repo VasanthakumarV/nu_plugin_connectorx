@@ -1,0 +1,16 @@
+[workspace]
+authors = ["VasanthakumarV <vasanth260m12@gmail.com>"]
+channels = ["conda-forge"]
+name = "nu_plugin_connectorx"
+version = "0.1.0"
+platforms = ["linux-64", "win-64", "osx-64", "osx-arm64", "linux-aarch64"]
+
+[tasks]
+test = "cargo test"
+install = "cargo install --path ."
+ci-fmt = "cargo fmt --check"
+ci-clippy = "cargo clippy --all-features -- -D warnings"
+
+[dependencies]
+rust = ">=1.93.1,<1.94"
+rust-src = ">=1.93.1,<2"
