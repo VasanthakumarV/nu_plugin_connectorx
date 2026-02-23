@@ -7,31 +7,29 @@
 
 <details>
   <summary><code>cx --help</code> content</summary>
-  <pre>
-    Load data from DBs using ConnectorX
+  <pre>Load data from DBs using ConnectorX
 
-    Usage:
-      > cx {flags} <uri>
+Usage:
+  > cx {flags} <uri>
 
-    Flags:
-      -h, --help: Display the help message for this command
-      -q, --query <string>: SQL Query to run
-      -f, --sql-file <string>: File with SQL Query to run
-      -p, --partition-on <string>: Column to partition the data on
-      -n, --num-partitions <int>: Number of partitions to make
-      -o, --output-parquet <path>: Parquet file save location, if provided no pipeline output will be produced
+Flags:
+  -h, --help: Display the help message for this command
+  -q, --query <string>: SQL Query to run
+  -f, --sql-file <string>: File with SQL Query to run
+  -p, --partition-on <string>: Column to partition the data on
+  -n, --num-partitions <int>: Number of partitions to make
+  -o, --output-parquet <path>: Parquet file save location, if provided no pipeline output will be produced
 
-    Parameters:
-      uri <string>: ConnectorX connection URI
+Parameters:
+  uri <string>: ConnectorX connection URI
 
-    Input/output types:
-      ╭───┬─────────┬─────────╮
-      │ # │  input  │ output  │
-      ├───┼─────────┼─────────┤
-      │ 0 │ nothing │ nothing │
-      │ 1 │ nothing │ table   │
-      ╰───┴─────────┴─────────╯
-  </pre>
+Input/output types:
+  ╭───┬─────────┬─────────╮
+  │ # │  input  │ output  │
+  ├───┼─────────┼─────────┤
+  │ 0 │ nothing │ nothing │
+  │ 1 │ nothing │ table   │
+  ╰───┴─────────┴─────────╯</pre>
 </details>
 
 # Installation
