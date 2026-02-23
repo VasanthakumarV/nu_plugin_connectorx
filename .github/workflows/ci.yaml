@@ -11,6 +11,10 @@ jobs:
         with:
           cache: true
           cache-write: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          # Only save cache on main to avoid thrashing
+          save-if: ${{ github.ref == 'refs/heads/main' }}
       - run: pixi run ci-fmt
       - run: pixi run ci-clippy
         if: success() || failure() 
