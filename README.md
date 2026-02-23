@@ -13,9 +13,18 @@ cargo install nu_plugin_connectorx
 
 # Example Usage
 
+Create dummy table in sqlite db,
 ```nu
-> [[a b c]; [1 2 3] [4 5 6]] | into sqlite test.db
-> cx $'sqlite://("./test.db" | path expand)' -q 'select * from main'
+[[a b c]; [1 2 3] [4 5 6]] | into sqlite test.db
+```
+
+Run query against the DB,
+```nu
+cx $'sqlite://("./test.db" | path expand)' -q 'select * from main'
+```
+
+Output,
+```sh
 ╭───┬───┬───┬───╮
 │ # │ a │ b │ c │
 ├───┼───┼───┼───┤
