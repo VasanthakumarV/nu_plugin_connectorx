@@ -40,13 +40,13 @@ Input/output types:
 ```
 </details>
 
-# Installation
+## Installation
 
 ```sh
 cargo install --locked nu_plugin_connectorx
 ```
 
-# Example Usage
+## Example
 
 Create dummy table in sqlite db,
 ```nu
