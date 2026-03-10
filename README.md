@@ -40,6 +40,13 @@ Input/output types:
 ```
 </details>
 
+## Version Mapping
+
+| nushell | nu_plugin_connectorx |
+| ---     | ---                  |
+| 0.111.0 | 0.2.0                |
+| 0.110.0 | 0.1.0                |
+
 ## Installation
 
 ```sh

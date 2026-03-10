@@ -28,12 +28,7 @@ def "test plugin" [] {
 }
 
 def main [] {
-  log info "Building binary..."
-  ^pixi r cargo build
-  let bin_dir = ($env | get -o CARGO_TARGET_DIR | default "./target")
-    | path join "debug" "nu_plugin_connectorx"
-
-  log info "Adding plugin..."
+  log info "Importing plugin..."
   plugin use connectorx
 
   let test_commands = (

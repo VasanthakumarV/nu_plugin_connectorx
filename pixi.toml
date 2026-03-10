@@ -3,11 +3,12 @@ authors = ["VasanthakumarV <vasanth260m12@gmail.com>"]
 channels = ["conda-forge"]
 name = "nu_plugin_connectorx"
 version = "0.1.0"
-platforms = ["linux-64", "win-64", "osx-64", "osx-arm64", "linux-aarch64"]
+platforms = ["linux-64", "win-64", "osx-64", "osx-arm64"]
+# platforms = ["linux-64", "win-64", "osx-64", "osx-arm64", "linux-aarch64"]
 
 [tasks]
 unit-test = "cargo test"
-integration-test = "cargo build && nu --plugins ./target/debug/nu_plugin_connectorx tests.nu"
+integration-test = "cargo build --target-dir ./target && nu -c 'plugin add ./target/debug/nu_plugin_connectorx; nu tests.nu'"
 install = "cargo install --path ."
 ci-fmt = "cargo fmt --check"
 ci-clippy = "cargo clippy --all-features -- -D warnings"
@@ -15,7 +16,7 @@ ci-clippy = "cargo clippy --all-features -- -D warnings"
 [dependencies]
 rust = ">=1.93.1,<1.94"
 rust-src = ">=1.93.1,<2"
-nushell = "==0.110.0"
+nushell = "==0.111.0"
 
 [target.linux.dependencies]
 clangdev = ">=22.1.0,<23"
