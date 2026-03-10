@@ -14,7 +14,7 @@ def "test plugin" [] {
     [7 13]
   ]
 
-  let db_file = mktemp --suffix db
+  mut db_file = "./test.db" | path expand
 
   log info $"Creating sqlite db at: ($db_file)"
   $data | into sqlite $db_file
