@@ -34,9 +34,7 @@ def main [] {
     | path join "debug" "nu_plugin_connectorx"
 
   log info "Adding plugin..."
-  const plugin_reg = "connectorx.msgpackz"
-  plugin add --plugin-config $plugin_reg $bin_dir
-  plugin use --plugin-config $plugin_reg connectorx
+  plugin use connectorx
 
   let test_commands = (
     scope commands
