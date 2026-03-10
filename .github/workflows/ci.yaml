@@ -21,5 +21,7 @@ jobs:
       - run: pixi run ci-fmt
       - run: pixi run ci-clippy
         if: success() || failure() 
-      - run: pixi run test
+      - run: pixi run unit-test
+        if: success() || failure()
+      - run: pixi run integration-test
         if: success() || failure()
