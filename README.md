@@ -1,6 +1,6 @@
 # nu_plugin_connectorx
 
-| [crates.io](https://crates.io/crates/nu_plugin_connectorx) |
+| [crates.io](https://crates.io/crates/nu_plugin_connectorx) | [conda-forge](https://anaconda.org/channels/conda-forge/packages/nu_plugin_connectorx/overview) |
 
 > [!WARNING]
 > This tool might be rough around the edges, it is not widely tested.
@@ -49,9 +49,26 @@ Input/output types:
 
 ## Installation
 
+<details>
+
+<summary>cargo</summary>
+
 ```sh
 cargo install --locked nu_plugin_connectorx
 ```
+__NOTE:__ For linux make sure you have addtional dependencies installed, refer [this section](pixi.toml#L28-L33) for details
+
+</details>
+
+<details>
+
+<summary>pixi</summary>
+
+```sh
+pixi global install nu_plugin_connectorx
+```
+
+</details>
 
 ## Example
 
