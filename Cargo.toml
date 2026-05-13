@@ -1,6 +1,6 @@
 [package]
 name = "nu_plugin_connectorx"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2024"
 description = "Load data from DBs in `nushell` using ConnectorX"
 license = "MIT OR Apache-2.0"
@@ -9,27 +9,42 @@ repository = "https://github.com/VasanthakumarV/nu_plugin_connectorx"
 readme = "README.md"
 
 [dependencies]
-connectorx = { version = "0.4.5", features = [
-  "dst_arrow",
-  "src_bigquery",
-  "src_mssql",
-  "src_mysql",
-  "src_oracle",
-  "src_postgres",
-  "src_sqlite",
-  "src_trino"
-] }
-chrono = { default-features = false, version = "0.4.43" }
-nu-plugin = "0.111.0"
-nu-protocol = { version = "0.111.0", features = ["plugin"] }
-parquet = { version = "54.3.1", features = ["arrow"] }
-arrow = { version = "54.3.1", features = ["chrono-tz"] }
+nu-plugin = "0.112.2"
 nu-path = "0.111.0"
 tracing = "0.1.44"
 tracing-subscriber = "0.3.22"
 rootcause = "0.12.0"
 rootcause-tracing = "0.12.0"
 
+[dependencies.connectorx]
+version = "0.4.5"
+features = [
+    "dst_arrow",
+    "src_bigquery",
+    "src_mssql",
+    "src_mysql",
+    "src_oracle",
+    "src_postgres",
+    "src_sqlite",
+    "src_trino",
+]
+
+[dependencies.chrono]
+default-features = false
+version = "0.4.43"
+
+[dependencies.nu-protocol]
+version = "0.112.2"
+features = ["plugin"]
+
+[dependencies.parquet]
+version = "54.3.1"
+features = ["arrow"]
+
+[dependencies.arrow]
+version = "54.3.1"
+features = ["chrono-tz"]
+
 [dev-dependencies]
 arrow-schema = "54.3.1"
-nu-plugin-test-support = "0.111.0"
+nu-plugin-test-support = "0.112.2"
