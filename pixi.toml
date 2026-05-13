@@ -23,7 +23,7 @@ nu -c '
 [dependencies]
 rust = ">=1.93.1,<1.94"
 rust-src = ">=1.93.1,<2"
-nushell = "==0.111.0"
+nushell = ">=0.112.2,<0.113"
 
 [target.linux.dependencies]
 clangdev = ">=22.1.0,<23"
