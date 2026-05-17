@@ -1,6 +1,6 @@
 [package]
 name = "nu_plugin_connectorx"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2024"
 description = "Load data from DBs in `nushell` using ConnectorX"
 license = "MIT OR Apache-2.0"
@@ -19,14 +19,14 @@ rootcause-tracing = "0.12.0"
 [dependencies.connectorx]
 version = "0.4.5"
 features = [
-    "dst_arrow",
-    "src_bigquery",
-    "src_mssql",
-    "src_mysql",
-    "src_oracle",
-    "src_postgres",
-    "src_sqlite",
-    "src_trino",
+  "dst_arrow",
+  "src_bigquery",
+  "src_mssql",
+  "src_mysql",
+  "src_oracle",
+  "src_postgres",
+  "src_sqlite",
+  "src_trino",
 ]
 
 [dependencies.chrono]

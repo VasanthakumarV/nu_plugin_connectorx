@@ -44,9 +44,9 @@ Input/output types:
 
 | nushell | nu_plugin_connectorx |
 | ---     | ---                  |
-| 0.112.2 | 0.3.0                |
-| 0.111.0 | 0.2.0                |
-| 0.110.0 | 0.1.0                |
+| 0.112   | 0.3                  |
+| 0.111   | 0.2                  |
+| 0.110   | 0.1                  |
 
 ## Installation
 
