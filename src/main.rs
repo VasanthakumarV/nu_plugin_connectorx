@@ -3,13 +3,13 @@ use std::{fs::File, io::Read, iter, path::PathBuf};
 use arrow::{
     array::{
         Array, BinaryArray, BinaryViewArray, BooleanArray, Date32Array, Date64Array,
-        DictionaryArray, DurationMillisecondArray, DurationNanosecondArray, DurationSecondArray,
-        FixedSizeBinaryArray, FixedSizeListArray, Float64Array, Int64Array, LargeBinaryArray,
-        LargeListArray, LargeListViewArray, LargeStringArray, ListArray, ListViewArray,
-        RecordBatch, StringArray, StringViewArray, StructArray, Time32MillisecondArray,
-        Time32SecondArray, Time64MicrosecondArray, Time64NanosecondArray,
-        TimestampMicrosecondArray, TimestampMillisecondArray, TimestampNanosecondArray,
-        TimestampSecondArray, timezone::Tz,
+        DictionaryArray, DurationMicrosecondArray, DurationMillisecondArray,
+        DurationNanosecondArray, DurationSecondArray, FixedSizeBinaryArray, FixedSizeListArray,
+        Float64Array, Int64Array, LargeBinaryArray, LargeListArray, LargeListViewArray,
+        LargeStringArray, ListArray, ListViewArray, RecordBatch, StringArray, StringViewArray,
+        StructArray, Time32MillisecondArray, Time32SecondArray, Time64MicrosecondArray,
+        Time64NanosecondArray, TimestampMicrosecondArray, TimestampMillisecondArray,
+        TimestampNanosecondArray, TimestampSecondArray, timezone::Tz,
     },
     compute::kernels::cast,
     datatypes::{
@@ -423,7 +423,7 @@ fn convert_column_to_nu(
                 convert!(column, col_idx, records, span, DurationMillisecondArray, v => Value::duration(v * 1_000_000, span));
             }
             TimeUnit::Microsecond => {
-                convert!(column, col_idx, records, span, DurationMillisecondArray, v => Value::duration(v * 1000, span));
+                convert!(column, col_idx, records, span, DurationMicrosecondArray, v => Value::duration(v * 1000, span));
             }
             TimeUnit::Nanosecond => {
                 convert!(column, col_idx, records, span, DurationNanosecondArray, v => Value::duration(v, span));
@@ -619,11 +619,13 @@ mod tests {
             IntervalDayTime::new(33, 0),   // 33 days, 0 milliseconds
             IntervalDayTime::new(0, 12 * 60 * 60 * 1000), // 0 days, 12 hours
         ]);
+        let duration_array = DurationMicrosecondArray::from(vec![10, 1000, 10_000]);
         let schema = Schema::new(vec![
             Field::new("d", date32_array.data_type().clone(), true),
             Field::new("e", time32_array.data_type().clone(), true),
             Field::new("f", timestamp_array.data_type().clone(), true),
             Field::new("g", interval_array.data_type().clone(), true),
+            Field::new("h", duration_array.data_type().clone(), true),
         ]);
         let batch = RecordBatch::try_new(
             Arc::new(schema),
@@ -632,6 +634,7 @@ mod tests {
                 Arc::new(time32_array),
                 Arc::new(timestamp_array),
                 Arc::new(interval_array),
+                Arc::new(duration_array),
             ],
         )
         .unwrap();
@@ -674,8 +677,13 @@ mod tests {
             Value::test_string("33 days"),
             Value::test_string("12 hours"),
         ])
-        .map(|(((d, e), f), g)| {
-            Value::test_record(record! {"d" => d, "e" => e, "f" => f, "g" => g})
+        .zip([
+            Value::test_duration(10 * 1000),
+            Value::test_duration(1000 * 1000),
+            Value::test_duration(10_000 * 1000),
+        ])
+        .map(|((((d, e), f), g), h)| {
+            Value::test_record(record! {"d" => d, "e" => e, "f" => f, "g" => g, "h" => h})
         })
         .collect();
 
